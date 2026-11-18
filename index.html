@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museum Singhasari | Malang, Jawa Timur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #F7F4EE;
+      --surface: #EFEAE0;
+      --surface-strong: #E4DDD0;
+      --ink: #1E1B18;
+      --ink-muted: #524B42;
+      --accent: #8C3B20;
+      --accent-hover: #722E17;
+      --bronze: #6E5320;
+      --border: #D5CCB9;
+      --white: #FFFFFF;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --max-w: 1120px;
+      --font-serif: "Lora", Georgia, "Times New Roman", serif;
+      --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--accent);
+      color: var(--white);
+      padding: 12px 18px;
+      font-weight: 600;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+      top: 12px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 72px;
+      padding: 10px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-height: 44px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      height: 44px;
+      padding: 0 8px;
+      border: 1.5px solid var(--bronze);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--bronze);
+      background: var(--surface);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .brand-sub {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+    }
+
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink);
+      border-radius: var(--radius-sm);
+    }
+
+    .nav-link:hover {
+      background-color: var(--surface);
+      color: var(--accent);
+    }
+
+    .header-tools {
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-form {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 190px;
+      min-height: 44px;
+      padding: 8px 38px 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 2px;
+      min-width: 40px;
+      min-height: 40px;
+      border: 0;
+      background: transparent;
+      color: var(--ink-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink);
+      padding: 0 10px;
+    }
+
+    .social-link:hover {
+      background: var(--surface);
+      border-color: var(--bronze);
+    }
+
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mobile-drawer {
+      display: none;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 16px 20px 20px;
+    }
+
+    .mobile-drawer.is-open {
+      display: block;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      margin: 0 0 16px;
+      padding: 0;
+      display: grid;
+      gap: 4px;
+    }
+
+    .mobile-nav-list a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 12px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-nav-list a:hover {
+      background: var(--surface-strong);
+    }
+
+    .mobile-drawer .search-form {
+      margin-bottom: 12px;
+    }
+
+    .mobile-drawer .search-input {
+      width: 100%;
+    }
+
+    /* Search result banner */
+    .search-feedback {
+      display: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+
+    .search-feedback.is-visible {
+      display: block;
+    }
+
+    .search-feedback-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .search-results-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .search-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .search-chip:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-reset-search {
+      min-height: 44px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--white);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Typography & Buttons */
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      line-height: 1.25;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(1.875rem, 4vw, 2.85rem);
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    .section-kicker {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--bronze);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 22px;
+      background-color: var(--accent);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 22px;
+      background-color: transparent;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--ink);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--surface);
+    }
+
+    /* Section spacing & rhythm */
+    section {
+      padding: 44px 0;
+    }
+
+    /* 1. Hero + Video Pembuka */
+    .hero {
+      padding: 36px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-lead {
+      font-size: 1.0625rem;
+      color: var(--ink-muted);
+      max-width: 54ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background-color: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .video-placeholder-label {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .video-placeholder-note {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      max-width: 38ch;
+      margin: 0;
+    }
+
+    /* 2. Tentang Museum (Split editorial) */
+    .about-grid {
+      display: grid;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .photo-placeholder {
+      background-color: var(--surface);
+      border: 1px dashed var(--bronze);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.875rem;
+    }
+
+    .photo-placeholder strong {
+      color: var(--ink);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    /* 3. Jelajahi Singhasari (Tonal band with timeline preview) */
+    .history-band {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .history-layout {
+      display: grid;
+      gap: 28px;
+    }
+
+    .history-milestones {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .history-milestones li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .milestone-title {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.0625rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .milestone-desc {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+    }
+
+    /* 4. Koleksi Unggulan (Asymmetric 1 featured + 2 secondary) */
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--ink-muted);
+      max-width: 56ch;
+    }
+
+    .collection-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .collection-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .collection-media {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      min-height: 200px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+    }
+
+    .collection-card.is-featured .collection-media {
+      min-height: 260px;
+    }
+
+    .collection-body {
+      padding: 20px;
+    }
+
+    .collection-meta {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--bronze);
+      margin-bottom: 6px;
+    }
+
+    .collection-body p:last-child {
+      margin-bottom: 0;
+      color: var(--ink-muted);
+      font-size: 0.9375rem;
+    }
+
+    /* 5. SINARA (Editorial quote & storytelling spotlight) */
+    .sinara-section {
+      background-color: var(--ink);
+      color: var(--bg);
+      padding: 56px 0;
+    }
+
+    .sinara-section h2,
+    .sinara-section h3 {
+      color: var(--bg);
+    }
+
+    .sinara-section .section-kicker {
+      color: #DFC389;
+    }
+
+    .sinara-grid {
+      display: grid;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .sinara-card {
+      background: #2A2520;
+      border: 1px solid #453D35;
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .sinara-card p {
+      color: #E6DFD3;
+    }
+
+    .sinara-section .btn-secondary {
+      color: var(--bg);
+      border-color: var(--bg);
+    }
+
+    .sinara-section .btn-secondary:hover {
+      background: #2A2520;
+    }
+
+    /* 6. Berita Terbaru */
+    .news-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .news-item {
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      display: grid;
+      gap: 8px;
+    }
+
+    .news-date {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--bronze);
+    }
+
+    .news-item p {
+      margin: 0;
+      color: var(--ink-muted);
+      font-size: 0.9375rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 36px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .footer-meta {
+      font-size: 0.9375rem;
+      color: var(--ink-muted);
+      margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 4px 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Tablet breakpoint */
+    @media (min-width: 640px) {
+      section {
+        padding: 56px 0;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .collection-card.is-featured {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+      }
+
+      .collection-card.is-featured .collection-media {
+        border-bottom: 0;
+        border-right: 1px solid var(--border);
+        min-height: 100%;
+      }
+
+      .news-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Desktop breakpoint */
+    @media (min-width: 960px) {
+      section {
+        padding: 68px 0;
+      }
+
+      .menu-toggle,
+      .mobile-drawer {
+        display: none !important;
+      }
+
+      .nav-desktop {
+        display: flex;
+      }
+
+      .header-tools {
+        display: flex;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 1.15fr;
+        gap: 40px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+      }
+
+      .history-layout {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .sinara-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .news-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.2fr 1fr;
+        align-items: center;
+      }
+
+      .footer-links {
+        justify-content: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#konten-utama">Lewati ke konten utama</a>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="brand" href="#beranda">
+          <span class="brand-mark">[LOGO]</span>
+          <span class="brand-text">
+            <span class="brand-name">Museum Singhasari</span>
+            <span class="brand-sub">Malang, Jawa Timur</span>
+          </span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Navigasi Beranda">
+          <a class="nav-link" href="#tentang">Tentang</a>
+          <a class="nav-link" href="#sejarah">Jelajahi Singhasari</a>
+          <a class="nav-link" href="#koleksi">Koleksi</a>
+          <a class="nav-link" href="#sinara">SINARA</a>
+          <a class="nav-link" href="#berita">Berita</a>
+        </nav>
+
+        <div class="header-tools">
+          <form class="search-form" role="search" data-search-form>
+            <label class="skip-link" for="cari-desktop">Cari bagian di beranda</label>
+            <input
+              id="cari-desktop"
+              class="search-input"
+              type="search"
+              placeholder="Cari di halaman ini..."
+              autocomplete="off"
+            />
+            <button class="search-btn" type="submit" aria-label="Cari">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+
+          <div class="social-links" aria-label="Media sosial museum">
+            <a class="social-link" href="#kontak-placeholder" title="Tautan Instagram menunggu data klien">IG</a>
+            <a class="social-link" href="#kontak-placeholder" title="Tautan YouTube menunggu data klien">YT</a>
+          </div>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+          id="menu-toggle-btn"
+        >
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+      <form class="search-form" role="search" data-search-form>
+        <label class="skip-link" for="cari-mobile">Cari bagian di beranda</label>
+        <input
+          id="cari-mobile"
+          class="search-input"
+          type="search"
+          placeholder="Cari di halaman ini..."
+          autocomplete="off"
+        />
+        <button class="search-btn" type="submit" aria-label="Cari">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <ul class="mobile-nav-list">
+        <li><a href="#tentang">Tentang Museum</a></li>
+        <li><a href="#sejarah">Jelajahi Singhasari</a></li>
+        <li><a href="#koleksi">Koleksi Unggulan</a></li>
+        <li><a href="#sinara">SINARA</a></li>
+        <li><a href="#berita">Berita Terbaru</a></li>
+      </ul>
+
+      <div class="social-links" aria-label="Media sosial museum">
+        <a class="social-link" href="#kontak-placeholder">Instagram [Menyusul]</a>
+        <a class="social-link" href="#kontak-placeholder">YouTube [Menyusul]</a>
+      </div>
+    </div>
+
+    <div class="search-feedback" id="search-feedback" role="status" aria-live="polite">
+      <div class="container">
+        <div class="search-feedback-inner">
+          <span id="search-status-text"></span>
+          <button type="button" class="btn-reset-search" id="reset-search-btn">Tutup pencarian</button>
+          <div class="search-results-list" id="search-results-list"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten-utama">
+    <!-- 1. Hero & Video Pembuka -->
+    <section class="hero" id="beranda" data-searchable="Beranda Video Pembuka Suasana Museum Singhasari Malang">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h1>Menjaga Jejak Peradaban Singhasari di Tanah Malang</h1>
+            <p class="hero-lead">
+              Museum Singhasari menghadirkan ruang pengenalan sejarah, arca, prasasti, dan narasi kebudayaan Kerajaan Singhasari bagi masyarakat umum, pelajar, dan peneliti.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="#koleksi">Lihat Koleksi Unggulan</a>
+              <a class="btn-secondary" href="#sejarah">Telusuri Sejarah Singhasari</a>
+            </div>
+          </div>
+
+          <!-- Ganti blok di bawah dengan <iframe> YouTube atau tag <video> dari klien -->
+          <div class="video-frame" aria-label="Area Video Pembuka Museum Singhasari">
+            <p class="video-placeholder-label">[PLACEHOLDER VIDEO PEMBUKA]</p>
+            <p class="video-placeholder-note">
+              Video suasana Museum Singhasari (tautan YouTube atau berkas video dari klien akan disematkan di area ini).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Tentang Museum -->
+    <section id="tentang" data-searchable="Tentang Museum Singhasari Pengenalan Sejarah Berdirinya">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <span class="section-kicker">Tentang Museum</span>
+            <h2>Mengenal Museum Singhasari</h2>
+            <p>
+              [PLACEHOLDER TEKS PROFIL] Museum Singhasari berlokasi di Kabupaten Malang, Jawa Timur, dan menyimpan ragam peninggalan arkeologis serta informasi sejarah masa Kerajaan Singhasari.
+            </p>
+            <p>
+              Pengenalan lengkap mengenai latar belakang berdirinya museum dan peran pelestariannya tersedia pada halaman Profil Museum di Google Sites.
+            </p>
+            <a class="btn-secondary" href="#sejarah">Baca Ringkasan Sejarah</a>
+          </div>
+
+          <div class="photo-placeholder">
+            <strong>[PLACEHOLDER FOTO EKSTERIOR / GALERI MUSEUM]</strong>
+            <span>Foto suasana bangunan atau ruang pamer utama dari klien ditempatkan di sini.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Jelajahi Singhasari -->
+    <section class="history-band" id="sejarah" data-searchable="Jelajahi Singhasari Sejarah Kerajaan Ken Arok Ken Dedes Tunggul Ametung Kejayaan Peninggalan">
+      <div class="container">
+        <div class="history-layout">
+          <div>
+            <span class="section-kicker">Jelajahi Singhasari</span>
+            <h2>Cuplikan Sejarah Kerajaan Singhasari</h2>
+            <p>
+              Dari Tumapel hingga menjadi kerajaan besar di Nusantara pada abad ke-13, jejak Kerajaan Singhasari membentuk babak penting dalam sejarah Jawa Timur.
+            </p>
+            <p>
+              Ringkasan di samping memuat poin utama yang akan dibahas lebih mendalam pada halaman Profil Museum.
+            </p>
+          </div>
+
+          <ul class="history-milestones">
+            <li>
+              <div class="milestone-title">Sejarah Awal Kerajaan</div>
+              <p class="milestone-desc">[PLACEHOLDER] Latar berdirinya Tumapel dan peralihan kekuasaan menuju Kerajaan Singhasari.</p>
+            </li>
+            <li>
+              <div class="milestone-title">Tokoh-Tokoh Penting</div>
+              <p class="milestone-desc">[PLACEHOLDER] Kisah dan peran Ken Arok, Ken Dedes, serta Tunggul Ametung dalam catatan sejarah.</p>
+            </li>
+            <li>
+              <div class="milestone-title">Masa Kejayaan &amp; Peninggalan</div>
+              <p class="milestone-desc">[PLACEHOLDER] Puncak kejayaan kerajaan serta warisan arca, candi, dan kebudayaan yang masih lestari.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Koleksi Unggulan -->
+    <section id="koleksi" data-searchable="Koleksi Unggulan Arca Prasasti Peninggalan Sejarah">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Koleksi Unggulan</span>
+            <h2>Peninggalan Pilihan Museum</h2>
+          </div>
+          <p>
+            Cuplikan beberapa koleksi utama. Detail identitas, asal-usul, dan nilai sejarah tiap koleksi disajikan lengkap di halaman Koleksi.
+          </p>
+        </div>
+
+        <div class="collection-grid">
+          <article class="collection-card is-featured">
+            <div class="collection-media">
+              <strong>[PLACEHOLDER FOTO KOLEKSI UTAMA]</strong>
+              <span>Foto koleksi unggulan pertama dari klien.</span>
+            </div>
+            <div class="collection-body">
+              <div class="collection-meta">Koleksi Unggulan 01</div>
+              <h3>[Nama Koleksi Utama Menyusul]</h3>
+              <p>
+                [PLACEHOLDER] Deskripsi singkat mengenai identitas benda, asal-usul temuan, dan nilai sejarahnya di masa Kerajaan Singhasari.
+              </p>
+            </div>
+          </article>
+
+          <article class="collection-card">
+            <div class="collection-media">
+              <strong>[PLACEHOLDER FOTO KOLEKSI 02]</strong>
+              <span>Foto koleksi unggulan kedua dari klien.</span>
+            </div>
+            <div class="collection-body">
+              <div class="collection-meta">Koleksi Unggulan 02</div>
+              <h3>[Nama Koleksi Kedua Menyusul]</h3>
+              <p>
+                [PLACEHOLDER] Penjelasan ringkas asal-usul dan konteks kebudayaan koleksi.
+              </p>
+            </div>
+          </article>
+
+          <article class="collection-card">
+            <div class="collection-media">
+              <strong>[PLACEHOLDER FOTO KOLEKSI 03]</strong>
+              <span>Foto koleksi unggulan ketiga dari klien.</span>
+            </div>
+            <div class="collection-body">
+              <div class="collection-meta">Koleksi Unggulan 03</div>
+              <h3>[Nama Koleksi Ketiga Menyusul]</h3>
+              <p>
+                [PLACEHOLDER] Penjelasan ringkas asal-usul dan konteks kebudayaan koleksi.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SINARA -->
+    <section class="sinara-section" id="sinara" data-searchable="SINARA Singhasari dalam Narasi Storytelling Sejarah Fakta Menarik">
+      <div class="container">
+        <div class="sinara-grid">
+          <div>
+            <span class="section-kicker">SINARA (Singhasari dalam Narasi)</span>
+            <h2>Cerita di Balik Setiap Peninggalan</h2>
+            <p>
+              SINARA menyajikan sejarah Kerajaan Singhasari melalui pendekatan narasi dan fakta menarik agar lebih mudah dipahami oleh generasi muda dan pengunjung museum.
+            </p>
+            <a class="btn-secondary" href="#koleksi">Telusuri Koleksi Terkait</a>
+          </div>
+
+          <div class="sinara-card">
+            <h3>[PLACEHOLDER JUDUL NARASI SINARA]</h3>
+            <p>
+              [PLACEHOLDER] Cuplikan cerita di balik salah satu koleksi atau peristiwa sejarah Singhasari yang disiapkan oleh tim kurator atau klien.
+            </p>
+            <p style="margin-bottom: 0; font-size: 0.875rem; color: #DFC389;">
+              Konten lengkap SINARA tersedia di halaman Koleksi pada Google Sites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Berita Terbaru -->
+    <section id="berita" data-searchable="Berita Terbaru Kegiatan Museum Program Edukasi Pameran Acara">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-kicker">Berita Terbaru</span>
+            <h2>Kegiatan &amp; Informasi Museum</h2>
+          </div>
+          <p>
+            Dokumentasi kegiatan, program edukasi, dan agenda pameran terbaru Museum Singhasari.
+          </p>
+        </div>
+
+        <div class="news-list">
+          <article class="news-item">
+            <span class="news-date">[Tanggal Menyusul]</span>
+            <h3>[PLACEHOLDER] Program Edukasi Kunjungan Sekolah</h3>
+            <p>Ringkasan kegiatan edukasi dan tur sejarah bagi pelajar di Museum Singhasari.</p>
+          </article>
+
+          <article class="news-item">
+            <span class="news-date">[Tanggal Menyusul]</span>
+            <h3>[PLACEHOLDER] Pameran &amp; Acara Kebudayaan</h3>
+            <p>Informasi pameran tematik atau kegiatan publik terbaru yang diselenggarakan museum.</p>
+          </article>
+
+          <article class="news-item">
+            <span class="news-date">[Tanggal Menyusul]</span>
+            <h3>[PLACEHOLDER] Informasi Operasional &amp; Pengumuman</h3>
+            <p>Pembaruan jadwal kunjungan, layanan rombongan, atau informasi resmi museum lainnya.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="kontak-placeholder">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong style="font-family: var(--font-serif); font-size: 1.0625rem;">Museum Singhasari</strong>
+          <p class="footer-meta">
+            [Alamat lengkap, jam operasional, dan kontak resmi menyusul dari klien] | Malang, Jawa Timur
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="#beranda">Kembali ke atas</a>
+          <a href="#tentang">Tentang</a>
+          <a href="#koleksi">Koleksi</a>
+          <a href="#berita">Berita</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const menuBtn = document.getElementById("menu-toggle-btn");
+      const mobileDrawer = document.getElementById("mobile-drawer");
+      const searchForms = document.querySelectorAll("[data-search-form]");
+      const searchFeedback = document.getElementById("search-feedback");
+      const searchStatusText = document.getElementById("search-status-text");
+      const searchResultsList = document.getElementById("search-results-list");
+      const resetSearchBtn = document.getElementById("reset-search-btn");
+      const searchableSections = Array.from(document.querySelectorAll("[data-searchable]"));
+
+      function toggleMenu(forceClose) {
+        const isOpen = mobileDrawer.classList.contains("is-open");
+        const nextState = forceClose ? false : !isOpen;
+        mobileDrawer.classList.toggle("is-open", nextState);
+        menuBtn.setAttribute("aria-expanded", String(nextState));
+      }
+
+      menuBtn.addEventListener("click", function () {
+        toggleMenu(false);
+      });
+
+      mobileDrawer.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          toggleMenu(true);
+        });
+      });
+
+      function clearSearch() {
+        searchFeedback.classList.remove("is-visible");
+        searchResultsList.innerHTML = "";
+        searchStatusText.textContent = "";
+      }
+
+      function runSearch(query) {
+        const cleanQuery = query.trim().toLowerCase();
+        if (!cleanQuery) {
+          clearSearch();
+          return;
+        }
+
+        const matches = searchableSections.filter(function (section) {
+          const keywords = (section.getAttribute("data-searchable") || "").toLowerCase();
+          const text = section.textContent.toLowerCase();
+          return keywords.includes(cleanQuery) || text.includes(cleanQuery);
+        });
+
+        searchResultsList.innerHTML = "";
+        searchFeedback.classList.add("is-visible");
+
+        if (matches.length === 0) {
+          searchStatusText.textContent = 'Tidak ada bagian di Beranda yang cocok dengan "' + query.trim() + '".';
+          return;
+        }
+
+        searchStatusText.textContent = "Ditemukan " + matches.length + " bagian yang cocok:";
+        matches.forEach(function (section) {
+          const heading = section.querySelector("h1, h2");
+          const label = heading ? heading.textContent.trim() : section.id;
+          const link = document.createElement("a");
+          link.className = "search-chip";
+          link.href = "#" + section.id;
+          link.textContent = label;
+          link.addEventListener("click", function () {
+            toggleMenu(true);
+          });
+          searchResultsList.appendChild(link);
+        });
+      }
+
+      searchForms.forEach(function (form) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const input = form.querySelector("input[type='search']");
+          runSearch(input ? input.value : "");
+        });
+      });
+
+      resetSearchBtn.addEventListener("click", clearSearch);
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          toggleMenu(true);
+          clearSearch();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
